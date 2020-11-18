@@ -1,18 +1,18 @@
 #편미분(Partial Differentiation)
 
-def f(x0):
-    return x0**2 + 4**2
+def f(x1):
+    return 3.**2 + x1**2
 
-def numerical_diff(f, x0):
+def numerical_diff(f, x1):
     h = 1.0e-4
-    return (f(x0 + h) - f(x0-h)) / (2*h)
+    return (f(x1 + h) - f(x1-h)) / (2*h)
 
-def analytic_diff(x0):
-    return 2*x0
+def analytic_diff(x1):
+    return 2*x1
 
 #(x0, x1) = (3,4)
-print(f'Numerical Partial Differentiation Value : {numerical_diff(f, 3)}')
-print(f'Analytic Differentiation Value : {analytic_diff(3)}')
+print(f'Numerical Partial Differentiation Value : {numerical_diff(f, 4)}')
+print(f'Analytic Differentiation Value : {analytic_diff(4)}')
 
 #(x0, x1) = (1,4)
 print(f'Numerical Partial Differentiation Value : {numerical_diff(f, 1)}')
