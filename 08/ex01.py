@@ -22,8 +22,8 @@ def numerical_gradient(f, x):
     # h2 = f(np.array([x[0]-h], x[1]))
     # gradient[0] = (h1-h2) / (2*h)
     #
-    # h1 = f(np.array([3, 4+h]))
-    # h2 = f(np.array([3, 4-h]))
+    # h1 = f(np.array([x[0], x[1]+h]))
+    # h2 = f(np.array([x[0], x1[1]-h]))
     # gradient[1] = (h1 - h2) / (2 * h)
 
     for i in range(x.size):
@@ -43,8 +43,8 @@ def numerical_gradient(f, x):
 #print(f(np.array([3, 4])))
 
 gra1 = numerical_gradient(f, np.array(f, np.array[3., 4.]))
-gra2 = numerical_gradient(f, np.array(f, np.array[3., 4.]))
-gra3 = numerical_gradient(f, np.array(f, np.array[3., 4.]))
+gra2 = numerical_gradient(f, np.array(f, np.array[0., 2.]))
+gra3 = numerical_gradient(f, np.array(f, np.array[3., 0.]))
 
 
 
