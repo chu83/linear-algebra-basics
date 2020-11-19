@@ -1,5 +1,6 @@
 #기울기(gradient)
 
+from inspect import signature
 import numpy as np
 
 def f(x):
@@ -59,9 +60,9 @@ def mean_squares_error(x, data_tranining):
     return e
 
 #경사하강법 구현1
-def gradient_descent(f, x, lr=0.01, epoch = 100):
+def gradient_descent(f, x, lr=0.01, epoch = 100, data_training = None):
     for i in range(epoch):
-        gradient = numerical_gradient(f, x)
+        gradient = numerical_gradient(f, x, data_training)
         #print
         print((f'epoch={i+1}, gradient = {gradient}, x = {x}'))
         x -= lr*gradient
@@ -145,15 +146,10 @@ def numerical_partial_diff(f, x, data_training = None):
         tmp = x[i]
 
         x[i] = tmp + h
-        if len(signature(f).parameters) ==1:
-            ha = f(x)
-        else:
-            h1 = f(x, data_training)
-
-        h1 = f(x)
+        h1 = f(x) if len(signature(f).parameters) ==1 else f(x, data_training)
 
         x[i] = tmp - h
-        h2 = f(x)
+        h2 = f(x) if len(signature(f).parameters) == 1 else f(x, data_training)
 
         dx[i] = (h1 - h2) / (2 * h)
         x[i] = tmp
