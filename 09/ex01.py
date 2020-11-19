@@ -16,4 +16,4 @@ def f(x):
     return np.sum(x**2 ,axis=0)
 
 gradient_descent(f, np.array([-3., 4.]), lr=0.1)
-gradient_descent(f, np.array([-3., 4.]), lr=0.001, epoch=10000)
+gradient_descent(f, np.array([-3., 4.]), lr=0.001, epoch=1000000)
